@@ -1,5 +1,5 @@
 {
-  "name": "TheGummyBearsProject",
+  "name": "thegummybears",
   "env": {
     "TOKEN_SECRET": {
       "description": "A secret key for verifying the integrity of JWT.",
