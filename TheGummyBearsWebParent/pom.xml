@@ -66,6 +66,12 @@
 			<artifactId>webjars-locator-core</artifactId>
 		</dependency>
 		
+		<dependency>
+			<groupId>com.thegummybears</groupId>
+			<artifactId>TheGummyBearsCommon</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
 	</dependencies>
 
 
