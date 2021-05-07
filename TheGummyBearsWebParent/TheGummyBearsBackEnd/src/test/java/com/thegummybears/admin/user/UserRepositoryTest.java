@@ -72,4 +72,13 @@ public class UserRepositoryTest {
 		listUsers.forEach(user -> System.out.println(user));
 	}
 
+	/**
+	 * retrive user based on ID
+	 */
+	@Test
+	public void testGetUsersById() {
+		User userThiari = repo.findById(1).get();
+		System.out.println(userThiari);
+		assertThat(userThiari).isNotNull();
+	}
 }
