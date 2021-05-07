@@ -81,4 +81,16 @@ public class UserRepositoryTest {
 		System.out.println(userThiari);
 		assertThat(userThiari).isNotNull();
 	}
+	
+	/**
+	 * test update user details
+	 */
+	@Test
+	public void testUpdateUserDetails() {
+		User userThiari = repo.findById(1).get();
+		userThiari.setEnabled(true);
+		userThiari.setEmail("thitari.updateEmail@gmail.com");
+		
+		repo.save(userThiari);
+	}
 }
