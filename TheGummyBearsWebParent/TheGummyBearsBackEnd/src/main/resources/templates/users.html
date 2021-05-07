@@ -44,10 +44,13 @@
   	
   	<div>
 		<h2> Company Employees</h2>
+		<a th:href="@{/users/new}">Create New User</a>
+	</div>
+		
 		<div th:if="${message != null}" class="alert alert-success text-center">
 		[[${message}]]
 		</div>
-	</div>
+	
 	
 	<!--Thitari
     <div th:if="${message != null}" class="alert alert-success text-center">
