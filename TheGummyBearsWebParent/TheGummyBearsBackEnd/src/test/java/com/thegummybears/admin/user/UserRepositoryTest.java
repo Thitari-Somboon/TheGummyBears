@@ -93,4 +93,21 @@ public class UserRepositoryTest {
 		
 		repo.save(userThiari);
 	}
+	
+	/**
+	 * Update role of existing user
+	 * remove
+	 * add
+	 */
+	@Test
+	public void testUpdateUserRoles() {
+		User userOla = repo.findById(2).get();
+		Role roleAdmin = new Role(1);
+		//Role roleManager = new Role(3);
+		userOla.getRoles().remove(roleAdmin); 
+		//userOla.addRole(roleManager);
+		
+		repo.save(userOla);
+		
+	}
 }
