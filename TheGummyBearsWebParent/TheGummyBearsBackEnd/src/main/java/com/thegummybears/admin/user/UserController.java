@@ -41,11 +41,11 @@ public class UserController {
 	}
 
 	@PostMapping("/users/save")
-	public String saveUser(User user, RedirectAttributes redirectAttributes) {
+	public String saveUser(User user) {
 		System.out.println(user);
 		service.save(user);
 
-		redirectAttributes.addFlashAttribute("message", "The user has been saved successfully.");
+		//redirectAttributes.addFlashAttribute("message", "The user has been saved successfully.");
 
 		return "redirect:/users";
 	}
