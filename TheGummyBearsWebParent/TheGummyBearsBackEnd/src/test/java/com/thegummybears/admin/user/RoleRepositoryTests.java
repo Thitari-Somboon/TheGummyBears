@@ -21,6 +21,7 @@ public class RoleRepositoryTests {
 	@Autowired
 	private RoleRepository repo;
 	
+	//Admin Role
 	@Test
 	public void testCreateFirstRole() {
 		Role roleAdmin = new Role("Admin", "Manage employee accounts");
@@ -29,12 +30,14 @@ public class RoleRepositoryTests {
 		assertThat(savedRole.getId()).isGreaterThan(0);
 	}
 	
-	//@Test
-	//public void testCreateSeveralRoles() {
+	//Other Roles
+	@Test
+	public void testCreateOtherRoles() {
 		//Role roleAdmin = new Role("Admin", "Manage employee accounts");
-		//Role roleEmployee = new Role("Employee", "Company employee");
-		
+		Role roleEmployee = new Role("Employee", "Company employee");
+		//Role roleManager = new Role("Manager", "See employee time staement reports");
 		//repo.saveAll(List.of(roleAdmin, roleEmployee));
-	//}
+		repo.saveAll(List.of(roleEmployee));
+	}
 
 }
