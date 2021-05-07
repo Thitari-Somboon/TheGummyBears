@@ -33,10 +33,10 @@ public class RoleRepositoryTests {
 	//Other Roles
 	@Test
 	public void testCreateOtherRoles() {
-		//Role roleAdmin = new Role("Admin", "Manage employee accounts");
+		Role roleAdmin = new Role("Admin", "Manage employee accounts");
 		Role roleEmployee = new Role("Employee", "Company employee");
 		//Role roleManager = new Role("Manager", "See employee time staement reports");
-		//repo.saveAll(List.of(roleAdmin, roleEmployee));
+		repo.saveAll(List.of(roleAdmin, roleEmployee));
 		repo.saveAll(List.of(roleEmployee));
 	}
 
