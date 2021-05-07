@@ -44,6 +44,7 @@ public class User {
 	
 	private boolean enabled;
 	
+	//Collections of Roles
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(
 			name = "users_roles",
@@ -52,9 +53,11 @@ public class User {
 			)
 	private Set<Role> roles = new HashSet<>();
 
+	//empty constructor
 	public User() {
 	}
 	
+	//Contructor
 	public User(String email, String password, String firstName, String lastName, Double workingHours) {
 		this.email = email;
 		this.password = password;
@@ -63,10 +66,12 @@ public class User {
 		this.workingHours = workingHours;
 	}
 	
+	//add role to SET
 	public void addRole(Role role) {
 		this.roles.add(role);
 	}
 	
+	//Getters and Setters
 	public Integer getId() {
 		return id;
 	}
