@@ -108,6 +108,14 @@ public class UserRepositoryTest {
 		//userOla.addRole(roleManager);
 		
 		repo.save(userOla);
-		
+	}
+	
+	/**
+	 * Test delete user based on ID
+	 */
+	@Test
+	public void testDeleteUser() {
+		Integer userId = 2;
+		repo.deleteById(userId);
 	}
 }
