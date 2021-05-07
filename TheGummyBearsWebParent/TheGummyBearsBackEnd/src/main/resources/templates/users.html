@@ -16,7 +16,7 @@
   <div class="container-fluid">
   	<div>
   		<nav class="navbar navbar-expand-lg bg-light navbar-light">
-  			<a class="navbar-brand" href="/">
+  			<a class="navbar-brand" th:href="@{/}">
   				<img th:src="@{/images/ShopmeAdminSmall.png}" />
   			</a>
   			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#topNavbar"> 
@@ -44,13 +44,16 @@
   	
   	<div>
 		<h2> Company Employees</h2>
-		<a th:href="@{/users/new}">Create New User</a>
+		<div th:if="${message != null}" class="alert alert-success text-center">
+		[[${message}]]
+		</div>
 	</div>
-	<!--Thitari-->
+	
+	<!--Thitari
     <div th:if="${message != null}" class="alert alert-success text-center">
         [[${message}]]
-    </div>
-	<br>
+    </div>-->
+	
 	
 	<div>
 		<table class="table table-bordered table-striped table-hover table-responsive-xL">
@@ -64,6 +67,8 @@
 					<th> Role </th>
 					<th> Job Title </th> 
 					<th> Working Hours </th> 
+					<th></th>
+					<th></th>
 				</tr>
 			</thead> 
 			
