@@ -62,5 +62,14 @@ public class UserRepositoryTest {
 		User savedUser =  repo.save(userOla);
 		assertThat(savedUser.getId()).isGreaterThan(0); //Object save as persistant object
 	}
+	
+	/**
+	 * Test retriving all users in the DB
+	 */
+	@Test
+	public void testListAllUsers() {
+		Iterable<User> listUsers = repo.findAll();
+		listUsers.forEach(user -> System.out.println(user));
+	}
 
 }
