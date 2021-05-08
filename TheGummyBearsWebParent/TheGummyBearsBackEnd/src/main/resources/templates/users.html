@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
     <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
  
@@ -69,6 +71,7 @@
 					<th> Enabled Status </th>
 					<th> Role </th>
 					<th> Job Title </th> 
+					<th> Enabled </th>
 					<th> Working Hours </th> 
 					<th></th>
 				</tr>
@@ -83,30 +86,29 @@
 					<td>[[${user.enabled}]]</td>
 					<td>[[${user.roles}]]</td>
 					<td>[[${user.jobTitle}]]</td>
-					<!-- <td>[[${user.workingHours}]]</td>-->
 
 					<!--modify url-->
 					<td>
-						<a th:if="${user.enabled == true}" class="fas fa-check-circle fa-2x icon-green" 
+						<a th:if="${user.enabled == true}" class="fas fa-check-circle  icon-green" 
 						th:href="@{'/users/' + ${user.id} + '/enabled/false'}"
 						title="Disable this user"></a>
 
-						<a th:if="${user.enabled == false}" class="fas fa-circle fa-2x icon-dark" 
+						<a th:if="${user.enabled == false}" class="fas fa-circle  icon-dark" 
 						th:href="@{'/users/' + ${user.id} + '/enabled/true'}"
 						title="Enable this user"></a>
 					</td>
-
-
+						<!-- <td>[[${user.workingHours}]]</td>-->
+					<td></td>
 
 					<!--Thitari-->
 					<!--edit from S32-->
 					<td>
-					<a class="fas fa-edit fa-2x icon green" th:href="@{'/users/edit/' + ${user.id}}"
+					<a class="fas fa-edit  icon green" th:href="@{'/users/edit/' + ${user.id}}"
 					title="Edit this user"></a>
 					&nbsp;
 					<!-- update hibernate link and set Title (S33 6048)-->
 					<!-- update delete dialog (S33 1057)-->
-					<a class="fas fa-trash fa-2x icon-dark link-delete" th:href="@{'/users/delete/' + ${user.id}}"
+					<a class="fas fa-trash  icon-dark link-delete" th:href="@{'/users/delete/' + ${user.id}}"
 					title="Delete this user"></a>
 					</td>
 				</tr>
