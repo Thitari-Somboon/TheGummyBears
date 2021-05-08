@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, minimum-scale=1.0">
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/style.css}"/>
     <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
  
@@ -35,7 +37,7 @@
 						<span class ="fas fa-user fa-2x icon-dark "></span>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" sec:authentication="principal.username" ></a>
+						<a class="nav-link" sec:authentication="principal.fullname" ></a>
 					</li>
   					<!--  <li class="nav-item">
   						<a class="nav-link" th:href="@{/report} ">Sales Report</a>
