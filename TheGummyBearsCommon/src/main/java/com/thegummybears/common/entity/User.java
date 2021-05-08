@@ -39,8 +39,11 @@ public class User {
 	@Column(name = "job_title", length = 64)
 	private String jobTitle;
 	
-	@Column(name = "working_hours", nullable = false)
-	private Double workingHours;
+	
+	  @Column(name = "working_hours") 
+	  private String workingHours;
+	  
+	 	
 	
 	private boolean enabled;
 	
@@ -57,13 +60,12 @@ public class User {
 	public User() {
 	}
 	
-	//Contructor
-	public User(String email, String password, String firstName, String lastName, Double workingHours) {
+	//Contructor for user form
+	public User(String email, String password, String firstName, String lastName) {
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.workingHours = workingHours;
 	}
 	
 	//add role to SET
@@ -120,19 +122,25 @@ public class User {
 		this.jobTitle = jobTitle;
 	}
 
-	public Double getWorkingHours() {
+	/*
+	 * public Double getWorkingHours() { return workingHours; }
+	 * 
+	 * public void setWorkingHours(Double workingHours) { this.workingHours =
+	 * workingHours; }
+	 */
+	
+	
+	  public boolean isEnabled() { return enabled; }
+	  
+	 	public String getWorkingHours() {
 		return workingHours;
 	}
 
-	public void setWorkingHours(Double workingHours) {
+	public void setWorkingHours(String workingHours) {
 		this.workingHours = workingHours;
 	}
 
-	public boolean isEnabled() {
-		return enabled;
-	}
-
-	public void setEnabled(boolean enabled) {
+		public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
 

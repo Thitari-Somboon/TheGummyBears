@@ -47,9 +47,9 @@
 	</div>
 
 <!--Form section-->
-<form th:action="@{/users/save}" method="POST" style="max-width: 700px; margin: 0 auto;"
-th:object="${user}" onsubmit="return checkEmailUnique(this);">
-<input type="hidden" th:field="*{id}"/>
+<form th:action="@{/users/save}" method="post" style="max-width: 700px; margin: 0 auto"
+		th:object="${user}">
+		
     <div class="border border-secondary rounded p-3">
         <div class="form-group row">
             <label class="col-sm-4 col-form-label">Email: </label>
@@ -103,9 +103,10 @@ th:object="${user}" onsubmit="return checkEmailUnique(this);">
         
         <!--Button-->
         <div class="text-center">
-            <input type="submit" value="save" class="btn btn-primary m-3"/>
-            <input type="button" value="cancel" class="btn btn-secondary"/>
+            <input type="submit" value="Save" class="btn btn-primary m-3"/>
+            <input type="button" value="cancel" class="btn btn-secondary" id="buttonCancel"/>
         </div>
+        
     </div>
 </form>
 
@@ -136,7 +137,14 @@ th:object="${user}" onsubmit="return checkEmailUnique(this);">
   	</div>
   </div>
     
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#buttonCancel").on("click", function() {
+			window.location = "[[@{/users}]]";
+		});
+	});
 
+</script>
 
   </body>
 </html>

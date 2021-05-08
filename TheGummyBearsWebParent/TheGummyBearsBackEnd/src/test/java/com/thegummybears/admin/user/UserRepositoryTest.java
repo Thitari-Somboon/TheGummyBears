@@ -44,7 +44,7 @@ public class UserRepositoryTest {
 	@Test
 	public void testCreateNewUserwithOneRole() {
 		Role roleAdmin = enitiyManager.find(Role.class, 1); //Assign to be Admin 
-		User userThitari = new User("Thitari@gmail.com", "password123", "Thitari", "Somboon", 110.0);	
+		User userThitari = new User("Thitari@gmail.com", "password123", "Thitari", "Somboon");	
 		userThitari.addRole(roleAdmin);
 		
 		User savedUser =  repo.save(userThitari);
@@ -53,7 +53,7 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void testCreateNewUserwithTwoRoles() {
-		User userOla = new User("Ola@gmail.com", "password000", "Olga", "Osipova", 250.00);	
+		User userOla = new User("Ola@gmail.com", "password000", "Olga", "Osipova");	
 		Role roleAdmin = new Role(1);
 		Role roleEmployee = new Role(2);
 		userOla.addRole(roleAdmin);
@@ -115,7 +115,7 @@ public class UserRepositoryTest {
 	 */
 	@Test
 	public void testDeleteUser() {
-		Integer userId = 2;
+		Integer userId = 3;
 		repo.deleteById(userId);
 	}
 }
