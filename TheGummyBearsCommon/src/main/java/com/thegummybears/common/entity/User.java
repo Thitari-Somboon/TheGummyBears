@@ -60,7 +60,7 @@ public class User {
 	public User() {
 	}
 	
-	//Contructor for user form
+	//Constructor for user form
 	public User(String email, String password, String firstName, String lastName) {
 		this.email = email;
 		this.password = password;
