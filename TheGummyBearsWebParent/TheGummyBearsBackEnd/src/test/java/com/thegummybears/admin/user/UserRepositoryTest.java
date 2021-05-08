@@ -153,7 +153,7 @@ public class UserRepositoryTest {
 	
 	@Test
 	public void testEnableUser() {
-		Integer id = 4;
+		Integer id = 10;
 		repo.updateEnabledStatus(id, true);
 	}
 	
