@@ -118,4 +118,15 @@ public class UserRepositoryTest {
 		Integer userId = 3;
 		repo.deleteById(userId);
 	}
+	
+	
+	/**
+	 * [30] Check Uniquness Email
+	 */
+	@Test
+	public void testGetUserByEmail() {
+		String email = "another@gmail.com";
+		User user = repo.getUserByEmail(email);
+		assertThat(user).isNotNull();		
+	}
 }
