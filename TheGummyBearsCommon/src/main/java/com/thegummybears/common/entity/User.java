@@ -61,7 +61,7 @@ public class User {
 	}
 	
 	//Constructor for user form
-	public User(String email, String password, String firstName, String lastName) {
+	public User(String email, String password, String firstName, String lastName, String workingHours) {
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;

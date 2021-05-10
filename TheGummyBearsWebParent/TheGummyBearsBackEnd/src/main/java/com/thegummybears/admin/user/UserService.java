@@ -16,8 +16,9 @@ import com.thegummybears.common.entity.User;
 public class UserService {
 
 	@Autowired
-	private UserRepository userRepo;
-	
+	private UserRepository userRepo; //update param reop -> userRepo
+
+
 	@Autowired
 	private RoleRepository roleRepo;
 	
