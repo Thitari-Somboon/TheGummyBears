@@ -44,22 +44,22 @@ public class UserRepositoryTest {
 	@Test
 	public void testCreateNewUserwithOneRole() {
 		Role roleAdmin = enitiyManager.find(Role.class, 1); //Assign to be Admin 
-		User userThitari = new User("Thitari@gmail.com", "password123", "Thitari", "Somboon","0");	
-		userThitari.addRole(roleAdmin);
+		User userTim = new User("tim@email.com", "tim123456", "Tim", "Smith");	
+		userTim.addRole(roleAdmin);
 		
-		User savedUser =  repo.save(userThitari);
+		User savedUser =  repo.save(userTim);
 		assertThat(savedUser.getId()).isGreaterThan(0); //Object save as persistant object
 	}
 	
 	@Test
 	public void testCreateNewUserwithTwoRoles() {
-		User userOla = new User("Ola@gmail.com", "password000", "Olga", "Osipova", "0");	
+		User userJen = new User("jen@email.com", "jen123456", "Jen", "Robinson");	
 		Role roleAdmin = new Role(1);
 		Role roleEmployee = new Role(2);
-		userOla.addRole(roleAdmin);
-		userOla.addRole(roleEmployee);
+		userJen.addRole(roleAdmin);
+		userJen.addRole(roleEmployee);
 		
-		User savedUser =  repo.save(userOla);
+		User savedUser =  repo.save(userJen);
 		assertThat(savedUser.getId()).isGreaterThan(0); //Object save as persistant object
 	}
 	
@@ -77,9 +77,9 @@ public class UserRepositoryTest {
 	 */
 	@Test
 	public void testGetUsersById() {
-		User userThiari = repo.findById(1).get();
-		System.out.println(userThiari);
-		assertThat(userThiari).isNotNull();
+		User userTim = repo.findById(1).get();
+		System.out.println(userTim);
+		assertThat(userTim).isNotNull();
 	}
 	
 	/**
@@ -87,11 +87,11 @@ public class UserRepositoryTest {
 	 */
 	@Test
 	public void testUpdateUserDetails() {
-		User userThiari = repo.findById(1).get();
-		userThiari.setEnabled(true);
-		userThiari.setEmail("thitari.updateEmail@gmail.com");
+		User userTim = repo.findById(1).get();
+		userTim.setEnabled(true);
+		userTim.setEmail("tim.updateEmail@gmail.com");
 		
-		repo.save(userThiari);
+		repo.save(userTim);
 	}
 	
 	/**
@@ -101,13 +101,13 @@ public class UserRepositoryTest {
 	 */
 	@Test
 	public void testUpdateUserRoles() {
-		User userOla = repo.findById(2).get();
+		User userJen = repo.findById(2).get();
 		Role roleAdmin = new Role(1);
 		//Role roleManager = new Role(3);
-		userOla.getRoles().remove(roleAdmin); 
+		userJen.getRoles().remove(roleAdmin); 
 		//userOla.addRole(roleManager);
 		
-		repo.save(userOla);
+		repo.save(userJen);
 	}
 	
 	/**
@@ -131,7 +131,7 @@ public class UserRepositoryTest {
 	}
 	
 	/**
-	 * [33]
+	 * [33 - Delete user]
 	 */
 	@Test
 	public void testCountById() {
@@ -143,7 +143,7 @@ public class UserRepositoryTest {
 		}
 	
 	/**
-	 * [34]
+	 * [34 - Update user enabled status]
 	 */
 	@Test
 	public void testDisableUser() {
@@ -151,9 +151,12 @@ public class UserRepositoryTest {
 		repo.updateEnabledStatus(id, false);
 	}
 	
+	/**
+	 * [34 - Update user enabled status]
+	 */
 	@Test
 	public void testEnableUser() {
-		Integer id = 10;
+		Integer id = 6;
 		repo.updateEnabledStatus(id, true);
 	}
 	

@@ -35,15 +35,7 @@ public class User {
 	
 	@Column(name = "last_name", length = 45, nullable = false)
 	private String lastName;
-	
-	@Column(name = "job_title", length = 64)
-	private String jobTitle;
-	
-	
-	  @Column(name = "working_hours") 
-	  private String workingHours;
-	  
-	 	
+
 	
 	private boolean enabled;
 	
@@ -61,7 +53,7 @@ public class User {
 	}
 	
 	//Constructor for user form
-	public User(String email, String password, String firstName, String lastName, String workingHours) {
+	public User(String email, String password, String firstName, String lastName) {
 		this.email = email;
 		this.password = password;
 		this.firstName = firstName;
@@ -114,32 +106,9 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public String getJobTitle() {
-		return jobTitle;
-	}
-
-	public void setJobTitle(String jobTitle) {
-		this.jobTitle = jobTitle;
-	}
-
-	/*
-	 * public Double getWorkingHours() { return workingHours; }
-	 * 
-	 * public void setWorkingHours(Double workingHours) { this.workingHours =
-	 * workingHours; }
-	 */
-	
-	
 	  public boolean isEnabled() { return enabled; }
 	  
-	 	public String getWorkingHours() {
-		return workingHours;
-	}
-
-	public void setWorkingHours(String workingHours) {
-		this.workingHours = workingHours;
-	}
-
+		
 		public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}

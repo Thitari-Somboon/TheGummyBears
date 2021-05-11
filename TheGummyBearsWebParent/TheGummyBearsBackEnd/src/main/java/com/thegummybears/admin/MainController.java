@@ -12,6 +12,7 @@ public class MainController {
 	}
 	
 	
+	//[48 user login]
 	  @GetMapping("/login") public String viewLoginPage() { return "login"; }
 	 
 }

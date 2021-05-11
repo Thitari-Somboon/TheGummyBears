@@ -13,46 +13,57 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.thegummybears.common.entity.Role;
 import com.thegummybears.common.entity.User;
 
+/**
+ * 
+ * [27]
+ *
+ */
+
 @Controller
 public class UserController {
 	
+	//[27]
 	@Autowired
 	private UserService service;
-	
-	
+
+	//[27]
 	@GetMapping("/users")
 	public String listAll(Model model) {
 		List<User> listUsers = service.listAll();
 		model.addAttribute("listUsers", listUsers);
-
+		
 		return "users";
 	}
 	
+	
+	//[28]
 	@GetMapping("/users/new")
 	public String newUser(Model model) {
+		
 		List<Role> listRoles = service.listRoles();
-
 		User user = new User();
-		user.setEnabled(true);
-
+		user.setEnabled(true); //for ennabled check box
+		
 		model.addAttribute("user", user);
 		model.addAttribute("listRoles", listRoles);
+		//[32 - Set page Title]
 		model.addAttribute("pageTitle", "Create New User");
-
+		
 		return "user_form";
 	}
 	
-
+	//[28]
 	@PostMapping("/users/save")
 	public String saveUser(User user, RedirectAttributes redirectAttributes) {
 		System.out.println(user);
-		service.save(user);
-
-		redirectAttributes.addFlashAttribute("message", "The user has been saved successfully.");
+		 service.save(user);
+		
+		 redirectAttributes.addFlashAttribute("message", "The user has been saved successfully.");
 
 		return "redirect:/users";
 	}
 	
+	//[32 - Code Update User function]
 	@GetMapping("/users/edit/{id}")
 	public String editUser(@PathVariable(name = "id") Integer id,  
 			Model model,
@@ -62,8 +73,10 @@ public class UserController {
 		List<Role> listRoles = service.listRoles();
 		
 		model.addAttribute("user", user);
-		model.addAttribute("pageTitle", "Edit User (ID: " +  id+ ")");
-		model.addAttribute("listRoles", listRoles);
+		
+		  model.addAttribute("pageTitle", "Edit User (ID: " + id+ ")");
+		  model.addAttribute("listRoles", listRoles);
+		 
 		
 		return "user_form";
 		} catch (UserNotFoundException e) {
@@ -72,6 +85,7 @@ public class UserController {
 		}
 	}
 	
+	//[33 - Delete user function]
 	@GetMapping("/users/delete/{id}")
 	public String deleteUser(@PathVariable(name = "id") Integer id,  
 			Model model,
@@ -85,6 +99,7 @@ public class UserController {
 		return "redirect:/users";
 	}
 	
+	//[34 - Update user enabled status]
 	@GetMapping("/users/{id}/enabled/{status}")
 	public String updateUserEnabledStatus(@PathVariable("id") Integer id,
 			@PathVariable("status") boolean enabled, 
@@ -96,4 +111,5 @@ public class UserController {
 		redirectAttributes.addFlashAttribute("message", message);
 		return "redirect:/users";
 	} 
+	
 }
